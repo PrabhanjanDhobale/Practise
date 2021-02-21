@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image sliding</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .sliding-img {
+            width: 100%;
+            height: 500px;
+        }
+
+        .btn {
+            border: 1px solid black;
+            background-color: white;
+            padding: 10px;
+        }
+
+        .previous-btn {
+            position: absolute;
+            top: 50%;
+            left: 0;
+        }
+
+        .next-btn {
+            position: absolute;
+            top: 50%;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="sliding-img" id="myImages" src="./img/first.jpg">
+    <button class="btn next-btn" onclick="next();">Next</button>
+    <button class="btn previous-btn" onclick="previous();">Previous</button>
+
+    <script>
+        var i = 0;
+        var path = "./img/";
+        var arr = ["first.jpg", "sec.jpg", "third.jpg", "forth.jpg"];
+        
+        function next() {
+            if (i < arr.length - 1) {
+                i++;
+                document.getElementById("myImages").src = path + arr[i];
+            } else {
+                i = 0;
+            }
+        }
+
+        function previous() {
+            if (i != 0) {
+                i--;
+                document.getElementById("myImages").src = path + arr[i];
+            } else {
+                i = arr.length - 1;
+            }
+        }
+    </script>
+</body>
+
+</html>
